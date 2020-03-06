@@ -10,4 +10,25 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libftprintf.a
 
+SRC = *.c
+
+OBJ = $(subst .c,.o,$(SRC))
+
+all: $(NAME)
+
+$(NAME):
+	@gcc -Wall -Wextra -Werror -c $(SRC)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+
+clean:
+	@/bin/rm -f $(OBJ) $(OBJ_BONUS)
+
+fclean: clean
+	@/bin/rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
