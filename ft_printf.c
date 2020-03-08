@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:35:24 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/06 21:05:25 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/03/08 18:32:25 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_printf(const char *format, ...)
 {
-	va_list		arguments;
+	va_list	arguments;
 	int		len;
 	int		i;
-	t_flags		flag;
+	t_flags	flag;
 
 	va_start(arguments, format);
 	i = 0;	
@@ -43,6 +43,29 @@ int	ft_printf(const char *format, ...)
 		i++;
 	}
 	return (len);
+}
+
+int	ft_verify_type(char c, va_list arguments, t_flags flag)
+{
+	int len;
+
+	if (c == 'c')
+		len = ft_print_char(va_arg(arguments, int), flag);
+	if (c == 'd' || c == 'i')
+		len = ft_print_int(va_arg(arguments, int), flag);
+	if (c == 's')
+		len = ft_print_string(va_arg(arguments, *char), flag);
+	if (c == 'x')
+		len = ft_print_hexa(va_arg(arguments, unsigned long int), HEXA_LOWER, flag);
+	if (c == 'X')
+		len = ft_print_hexa(va_arg(arguments, unsigned long int), HEXA_UPPER, flag);
+	if (c == 'p')
+		len = ft_print_pointer(va_arg(arguments, unsigned long int), flag);
+	if (c == 'u')
+		len = ft_print_u(va_arg(arguments, int), flag);
+	else
+		len = ft_print_percent(flag);
+	return (len);	
 }
 
 t_flags	ft_verify_star(va_list arguments, t_flags flag)

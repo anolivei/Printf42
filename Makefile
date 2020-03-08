@@ -6,13 +6,15 @@
 #    By: anolivei <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 21:40:14 by anolivei          #+#    #+#              #
-#    Updated: 2020/03/06 21:15:28 by anolivei         ###   ########.fr        #
+#    Updated: 2020/03/08 18:49:54 by anolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = ft_printf.c ft_strchr.c
+SRC = 	ft_printf.c ft_strchr.c ft_print_char.c ft_print_int.c ft_print_string.c	/
+		ft_print_hexa.c ft_print_pointer.c ft_print_u.c ft_print_percent.c	/
+		ft_strlen.c ft_itoa.c
 
 MAIN = main.c
 

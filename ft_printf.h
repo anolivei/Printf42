@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:48:50 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/06 21:14:02 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/03/08 19:54:19 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,19 @@ typedef struct	s_flags
 # define HEXA_UPPER	"0123456789ABCDEF"
 # define MIN_INT	-2147483648
 
-int	ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
 t_flags	ft_verify_star(va_list arguments, t_flags flag);
 t_flags	ft_verify_flags(const char *c, va_list arguments, t_flags flag);
 t_flags	ft_clean_flags(void);
-int	ft_putchar_len(const char *c, int len);
+int		ft_putchar_len(const char *c, int len);
 char	*ft_strchr(const char *s, int c);
-
+int		ft_verify_type(char c, va_list arguments, t_flags flag);
+int		ft_print_char(va_list arguments, t_flags flag);
+int		ft_print_int(va_list arguments, t_flags flag);
+int		ft_print_string(va_list arguments, t_flags flag);
+int		ft_print_hexa(va_list arguments, char *lower_upper,  t_flags flag);
+int		ft_print_pointer(va_list arguments, t_flags flag);
+int		ft_print_u(va_list arguments, t_flags flag);
+int		ft_print_percent(t_flags flag);
 
 #endif
