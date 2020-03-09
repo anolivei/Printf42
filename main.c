@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 21:05:59 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/06 21:16:06 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/03/08 22:24:38 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	printf("Phase: %s\n", "hello world");
-	ft_printf("Phrase:", "hello world");
-	return (0);
+	printf("printf: %-5c\n", 'c');
+	ft_printf("ft_printf: %-5c\n", 'c');
+	return (1);
 }

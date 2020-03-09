@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:35:24 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/08 18:32:25 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/03/08 22:49:12 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ft_printf(const char *format, ...)
 	int		len;
 	int		i;
 	t_flags	flag;
-
 	va_start(arguments, format);
 	i = 0;	
 	while (format[i] != '\0')
@@ -35,7 +34,7 @@ int	ft_printf(const char *format, ...)
 			if (format[i] == '\0')
 				return (0);
 			else
-			//	len = ft_verify_type(format[i], arguments, flag);
+				len = ft_verify_type(format[i], arguments, flag);
 				i++;			 
 		}
 		if (format[i] != '\0')
@@ -48,10 +47,12 @@ int	ft_printf(const char *format, ...)
 int	ft_verify_type(char c, va_list arguments, t_flags flag)
 {
 	int len;
-
+	
+	len = 0;
+	printf("\nc = %c", c);
 	if (c == 'c')
 		len = ft_print_char(va_arg(arguments, int), flag);
-	if (c == 'd' || c == 'i')
+/*	if (c == 'd' || c == 'i')
 		len = ft_print_int(va_arg(arguments, int), flag);
 	if (c == 's')
 		len = ft_print_string(va_arg(arguments, *char), flag);
@@ -64,7 +65,7 @@ int	ft_verify_type(char c, va_list arguments, t_flags flag)
 	if (c == 'u')
 		len = ft_print_u(va_arg(arguments, int), flag);
 	else
-		len = ft_print_percent(flag);
+		len = ft_print_percent(flag);*/
 	return (len);	
 }
 
@@ -85,6 +86,7 @@ t_flags	ft_verify_star(va_list arguments, t_flags flag)
 
 t_flags	ft_verify_flags(const char *c, va_list arguments, t_flags flag) 
 {
+	printf("\nc = %s", c);
 	if (*c == '0' && flag.justify == 0 && flag.width == 0)
 		flag.zero = 1;
 	else if (*c == '*')
@@ -103,6 +105,11 @@ t_flags	ft_verify_flags(const char *c, va_list arguments, t_flags flag)
 		else
 			flag.width = (flag.width * 10) + (*c - '0');
 	}
+	printf("wi %d\n", flag.width);
+	printf("ju %d\n", flag.justify);
+	flag.type = c[ft_strlen(c) - 1];
+	printf("type %zu\n", ft_strlen(c));
+	printf("fl %c", flag.type);
 	return (flag);
 }
 
