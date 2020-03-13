@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:35:24 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/08 22:49:12 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/03/13 00:25:38 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,23 @@ int	ft_printf(const char *format, ...)
 	int		i;
 	t_flags	flag;
 	va_start(arguments, format);
-	i = 0;	
+	i = 0;
+	len = 0;
 	while (format[i] != '\0')
 	{
 		while (format[i] == '%')
 		{
 			flag = ft_clean_flags();
 			i++;
-			while(format[i] != '\0' && ft_strchr(FLAGS, format[i]) != 0)
+			while(format[i] != '\0' && ft_strchr(FLAGS, format[i]) == 1)
 			{
-				flag = ft_verify_flags(&format[i], arguments, flag);
+				flag = ft_verify_flags(format[i], arguments, flag);
 				i++;	
 			}
 			if (format[i] == '\0')
 				return (0);
-			else
-				len = ft_verify_type(format[i], arguments, flag);
-				i++;			 
+			len = ft_verify_type(format[i], arguments, flag);
+			i++;			 
 		}
 		if (format[i] != '\0')
 			len = ft_putchar_len(&format[i], len);
@@ -49,7 +49,8 @@ int	ft_verify_type(char c, va_list arguments, t_flags flag)
 	int len;
 	
 	len = 0;
-	printf("\nc = %c", c);
+//	c =  'a';
+//	printf("\na = %c", c);
 	if (c == 'c')
 		len = ft_print_char(va_arg(arguments, int), flag);
 /*	if (c == 'd' || c == 'i')
@@ -84,38 +85,35 @@ t_flags	ft_verify_star(va_list arguments, t_flags flag)
 	return (flag);
 }
 
-t_flags	ft_verify_flags(const char *c, va_list arguments, t_flags flag) 
+t_flags	ft_verify_flags(const char c, va_list arguments, t_flags flag) 
 {
-	printf("\nc = %s", c);
-	if (*c == '0' && flag.justify == 0 && flag.width == 0)
+//	printf("\nb = %c\n", c);
+	if (c == '0' && flag.justify == 0 && flag.width == 0)
 		flag.zero = 1;
-	else if (*c == '*')
+	else if (c == '*')
 		ft_verify_star(arguments, flag);
-	else if (*c == '.')
+	else if (c == '.')
 		flag.dot = 1;
-	else if (*c == '-')
+	else if (c == '-')
 	{
 		flag.justify = 1;
 		flag.zero = 0;
 	}
-	else if (ft_strchr(DECIMAL, *c))
+	else if (ft_strchr(DECIMAL, c))
 	{
 		if (flag.dot == 1)
-			flag.precision = (flag.precision * 10) + (*c - '0');
+			flag.precision = (flag.precision * 10) + (c - '0');
 		else
-			flag.width = (flag.width * 10) + (*c - '0');
+			flag.width = (flag.width * 10) + (c - '0');
 	}
-	printf("wi %d\n", flag.width);
-	printf("ju %d\n", flag.justify);
-	flag.type = c[ft_strlen(c) - 1];
-	printf("type %zu\n", ft_strlen(c));
-	printf("fl %c", flag.type);
+//	printf("wi %d\n", flag.width);
+//	printf("ju %d\n", flag.justify);
 	return (flag);
 }
 
 int	ft_putchar_len(const char *c, int len)
 {
-	write(1, &c, 1);
+	ft_putchar(*c);
 	len++;
 	return (len);
 }

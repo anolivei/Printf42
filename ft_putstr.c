@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
+/*   By: anolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 05:22:32 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/12 23:50:50 by anolivei         ###   ########.fr       */
+/*   Created: 2020/03/12 22:17:49 by anolivei          #+#    #+#             */
+/*   Updated: 2020/03/12 22:19:44 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_strchr(char *s, int c)
+int	ft_putstr(char *str)
 {
 	int i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s[i] == c)
-			return (1);
+		write(1, &str[i], 1);
 		i++;
 	}
-	return (0);
+	return (1);
 }
