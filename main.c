@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 21:05:59 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/13 00:30:00 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/03/14 06:06:49 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@ int	main(void)
 {
 	int t_orig;
 	int t_mine;
-
-	t_mine = ft_printf("printfm: %-5c", 'c');
-	//printf("(%d)",t_mine);
-
-	t_orig = printf("(%d)ntfo: %-5c",t_mine ,'c');
+// CHAR
+//	t_mine = ft_printf("printfm: %15c", 'c');
+//	printf("(%d)\n", t_mine);
+//	t_orig = printf("printfo: %15c", 'c');
+//	printf("(%d)\n",t_orig);
+// STRING
+	t_mine = ft_printf("printfm: %-5.3s", "corona");
+	printf("(%d)\n", t_mine);
+	t_orig = printf("printfo: %-5.3s", "corona");
 	printf("(%d)\n",t_orig);
+
 	return (0);
 }

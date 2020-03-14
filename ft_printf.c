@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:35:24 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/13 00:25:38 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/03/14 05:21:00 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,13 @@ int	ft_printf(const char *format, ...)
 			}
 			if (format[i] == '\0')
 				return (0);
-			len = ft_verify_type(format[i], arguments, flag);
-			i++;			 
+			len = len + ft_verify_type(format[i++], arguments, flag);
 		}
 		if (format[i] != '\0')
+		{
 			len = ft_putchar_len(&format[i], len);
-		i++;
+			i++;
+		}
 	}
 	return (len);
 }
@@ -52,11 +53,11 @@ int	ft_verify_type(char c, va_list arguments, t_flags flag)
 //	c =  'a';
 //	printf("\na = %c", c);
 	if (c == 'c')
-		len = ft_print_char(va_arg(arguments, int), flag);
+		len = ft_print_char(va_arg(arguments, int), flag, len);
+	if (c == 's')
+		len = ft_print_string(va_arg(arguments, char*), flag, len);
 /*	if (c == 'd' || c == 'i')
 		len = ft_print_int(va_arg(arguments, int), flag);
-	if (c == 's')
-		len = ft_print_string(va_arg(arguments, *char), flag);
 	if (c == 'x')
 		len = ft_print_hexa(va_arg(arguments, unsigned long int), HEXA_LOWER, flag);
 	if (c == 'X')
