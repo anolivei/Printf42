@@ -6,13 +6,13 @@
 /*   By: anolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 19:56:45 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/04 17:39:20 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/03/15 02:41:58 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
 	long int size;
 
