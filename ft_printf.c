@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:35:24 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/15 03:18:48 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/03/15 03:28:38 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,7 @@ int	ft_verify_type(char c, va_list arguments, t_flags flag)
 	if (c == 'p')
 		len = ft_print_pointer(va_arg(arguments, unsigned long int), flag);
 	if (c == 'u')
-		len = ft_print_u(va_arg(arguments, int), flag);
-	else
-		len = ft_print_percent(flag);*/
+		len = ft_print_u(va_arg(arguments, int), flag);*/
 	return (len);	
 }
 
