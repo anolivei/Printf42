@@ -6,14 +6,14 @@
 /*   By: anolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 21:43:53 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/14 04:38:08 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/03/31 21:58:18 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int	ft_print_char(char c, t_flags flag, int len)
-{	
+{
 	len = flag.width;
 	if (flag.justify == 0 && flag.width == 0)
 	{

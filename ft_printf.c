@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:35:24 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/15 03:28:38 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/03 01:26:34 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	ft_printf(const char *format, ...)
 				flag = ft_verify_flags(format[i], arguments, flag);
 				i++;	
 			}
+		//	flag.zero_space = flag.justify == 0 ? ' ' : '0';
 			if (format[i] == '\0')
 				return (0);
 			len = len + ft_verify_type(format[i++], arguments, flag);
@@ -58,8 +59,9 @@ int	ft_verify_type(char c, va_list arguments, t_flags flag)
 		len = ft_print_string(va_arg(arguments, char*), flag, len);
 	if (c == '%')
 		len = ft_print_pct('%', flag, len);
-/*	if (c == 'd' || c == 'i')
-		len = ft_print_int(va_arg(arguments, int), flag);
+	if (c == 'd' || c == 'i')
+		len = ft_print_int(va_arg(arguments, int), flag, len);
+	/*
 	if (c == 'x')
 		len = ft_print_hexa(va_arg(arguments, unsigned long int), HEXA_LOWER, flag);
 	if (c == 'X')
@@ -107,6 +109,7 @@ t_flags	ft_verify_flags(const char c, va_list arguments, t_flags flag)
 		else
 			flag.width = (flag.width * 10) + (c - '0');
 	}
+//	flag.zero_space = flag.justify == 0 ? ' ' : '0';
 //	printf("wi %d\n", flag.width);
 //	printf("ju %d\n", flag.justify);
 	return (flag);
@@ -128,6 +131,7 @@ t_flags	ft_clean_flags(void)
 	flag.width = 0;
 	flag.precision = 0;
 	flag.justify = 0;
+	flag.zero_space = 0;
 	return (flag);
 }
 	

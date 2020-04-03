@@ -6,14 +6,14 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 03:13:39 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/15 03:22:44 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/03/31 21:58:58 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int	ft_print_pct(char c, t_flags flag, int len)
-{	
+{
 	char space;
 
 	space = flag.zero == 1 ? '0' : ' ';
