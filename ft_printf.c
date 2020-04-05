@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:35:24 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/05 18:21:36 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/05 18:51:13 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ int	ft_verify_type(char c, va_list arguments, t_flags flag)
 	if (c == '%')
 		len = ft_print_pct('%', flag, len);
 	if (c == 'd' || c == 'i')
-		len = ft_print_int(va_arg(arguments, int), flag, len);
+		len = ft_print_int(ft_itoa(va_arg(arguments, int)), flag, len);
 	if (c == 'u')
-		len = ft_print_u(va_arg(arguments, int), flag, len);
+		len = ft_print_u(ft_utoa(va_arg(arguments, int)), flag, len);
 	if (c == 'x')
-		len = ft_print_hexa(va_arg(arguments, unsigned long int), HEXA_LOWER, flag, len);
+		len = ft_print_hexa(ft_dtox(va_arg(arguments, unsigned long int), HEXA_LOWER), flag, len);
 	if (c == 'X')
-		len = ft_print_hexa(va_arg(arguments, unsigned long int), HEXA_UPPER, flag, len);
+		len = ft_print_hexa(ft_dtox(va_arg(arguments, unsigned long int), HEXA_UPPER), flag, len);
 /*	if (c == 'p')
 		len = ft_print_pointer(va_arg(arguments, unsigned long int), flag);*/
 	return (len);

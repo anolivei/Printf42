@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 22:01:25 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/05 05:00:12 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/05 18:56:28 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ static void ft_putchar_just_minus(char *str, t_flags flag, int len)
 	}
 }
 
-int	ft_print_int(int arguments, t_flags flag, int len)
+int	ft_print_int(char *str, t_flags flag, int len)
 {
-	char	*str;
+//	char	*str;
 	int		len_s;
 	int		i;
 
 	i = 0;
-	str = ft_itoa(arguments);
+//	str = ft_itoa(arguments);
 	len_s = ft_strlen(str);
 	if (flag.dot && !flag.precision && !flag.width)
 		return (0);
@@ -122,5 +122,4 @@ int	ft_print_int(int arguments, t_flags flag, int len)
 		}
 	}
 	return (0);
-
 }
