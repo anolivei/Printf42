@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 21:05:59 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/05 06:57:06 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/05 18:27:04 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ int	main(void)
 //	printf("(%d)\n",t_orig);
 //
 //	UTOA
-	t_mine = ft_utoa(0);
-	printf("%s\n", t_mine);
+//	t_mine = ft_utoa(0);
+//	printf("%s\n", t_mine);
+//
+//	DTOX
+		t_mine = ft_dtox(0, HEXA_UPPER);
+		printf("%s\n", t_mine);
+
 }
