@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 21:05:59 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/03 01:25:32 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/05 06:57:06 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(void)
 {
-	int t_orig;
-	int t_mine;
-
+//	int t_orig;
+//	int t_mine;
+	char *t_mine;
 // CHAR
 //	t_mine = ft_printf("printfm: %15c", 'c');
 //	printf("(%d)\n", t_mine);
@@ -41,8 +41,12 @@ int	main(void)
 //	return (0);
 //
 //	INT
-	t_mine = ft_printf("printfm: %-8i", 17);
-	printf("(%d)\n", t_mine);
-	t_orig = printf("printfo: %-8i", 17);
-	printf("(%d)\n",t_orig);	
+//	t_mine = ft_printf("printfm: %-8i", 17);
+//	printf("(%d)\n", t_mine);
+//	t_orig = printf("printfo: %-8i", 17);
+//	printf("(%d)\n",t_orig);
+//
+//	UTOA
+	t_mine = ft_utoa(0);
+	printf("%s\n", t_mine);
 }

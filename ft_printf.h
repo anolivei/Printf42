@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:48:50 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/05 01:42:18 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/05 06:41:57 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ typedef struct	s_flags
 	int		width;
 	int		precision;
 	int		justify;
-	char	zero_space;
-	int		i;
 }		t_flags;
 
 # define CONVERSIONS	"cspdiuxX%"
@@ -48,7 +46,7 @@ int		ft_print_int(int arguments, t_flags flag, int len);
 int		ft_print_string(char *str, t_flags flag, int len);
 int		ft_print_hexa(va_list arguments, char *lower_upper,  t_flags flag);
 int		ft_print_pointer(va_list arguments, t_flags flag);
-int		ft_print_u(va_list arguments, t_flags flag);
+int		ft_print_u(unsigned int  u, t_flags flag, int len);
 int		ft_print_pct(char c, t_flags flag, int len);
 int		ft_strlen(const char *str);
 int		ft_putchar(char c);

@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:35:24 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/03 01:26:34 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/05 06:28:02 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	ft_printf(const char *format, ...)
 				flag = ft_verify_flags(format[i], arguments, flag);
 				i++;	
 			}
-		//	flag.zero_space = flag.justify == 0 ? ' ' : '0';
 			if (format[i] == '\0')
 				return (0);
 			len = len + ft_verify_type(format[i++], arguments, flag);
@@ -51,8 +50,6 @@ int	ft_verify_type(char c, va_list arguments, t_flags flag)
 	int len;
 	
 	len = 0;
-//	c =  'a';
-//	printf("\na = %c", c);
 	if (c == 'c')
 		len = ft_print_char(va_arg(arguments, int), flag, len);
 	if (c == 's')
@@ -61,15 +58,15 @@ int	ft_verify_type(char c, va_list arguments, t_flags flag)
 		len = ft_print_pct('%', flag, len);
 	if (c == 'd' || c == 'i')
 		len = ft_print_int(va_arg(arguments, int), flag, len);
+	if (c == 'u')
+		len = ft_print_u(va_arg(arguments, int), flag, len);
 	/*
 	if (c == 'x')
 		len = ft_print_hexa(va_arg(arguments, unsigned long int), HEXA_LOWER, flag);
 	if (c == 'X')
 		len = ft_print_hexa(va_arg(arguments, unsigned long int), HEXA_UPPER, flag);
 	if (c == 'p')
-		len = ft_print_pointer(va_arg(arguments, unsigned long int), flag);
-	if (c == 'u')
-		len = ft_print_u(va_arg(arguments, int), flag);*/
+		len = ft_print_pointer(va_arg(arguments, unsigned long int), flag);*/
 	return (len);	
 }
 
@@ -90,7 +87,6 @@ t_flags	ft_verify_star(va_list arguments, t_flags flag)
 
 t_flags	ft_verify_flags(const char c, va_list arguments, t_flags flag) 
 {
-//	printf("\nb = %c\n", c);
 	if (c == '0' && flag.justify == 0 && flag.width == 0)
 		flag.zero = 1;
 	else if (c == '*')
@@ -109,9 +105,6 @@ t_flags	ft_verify_flags(const char c, va_list arguments, t_flags flag)
 		else
 			flag.width = (flag.width * 10) + (c - '0');
 	}
-//	flag.zero_space = flag.justify == 0 ? ' ' : '0';
-//	printf("wi %d\n", flag.width);
-//	printf("ju %d\n", flag.justify);
 	return (flag);
 }
 
@@ -131,7 +124,6 @@ t_flags	ft_clean_flags(void)
 	flag.width = 0;
 	flag.precision = 0;
 	flag.justify = 0;
-	flag.zero_space = 0;
 	return (flag);
 }
 	

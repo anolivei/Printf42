@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utoa.c                                          :+:      :+:    :+:   */
+/*   ft_print_u.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/05 06:00:00 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/05 06:58:44 by anolivei         ###   ########.fr       */
+/*   Created: 2020/04/05 06:39:31 by anolivei          #+#    #+#             */
+/*   Updated: 2020/04/05 07:46:34 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_utoa(unsigned int u)
+int	ft_print_u(unsigned int u, t_flags flag, int len)
 {
-	char			*str;
-	int				len;
-	unsigned int	num;
-	
-	num = u;
-	len = u == 0 ? 1 : 0;;
-	while (num > 0)
+	char *str;
+
+	str = ft_utoa(u);
+	if (u >= 4294967295)
 	{
-		num = num / 10;
-		len++;
+		len = ft_putstr(str);
+		flag.width = flag.width;
 	}
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == 0)
-		return (0);
-	str[len] = '\0';
-	num = u;
-	while (num  > 9)
-	{
-		str[len-- - 1] = ((num % 10) + '0');
-		num = num / 10;
-	}
-	str[len - 1] = ((num % 10) + '0');
-	return (str);
+	else
+		len = ft_print_int(u, flag, len);
+	return (len);
 }
