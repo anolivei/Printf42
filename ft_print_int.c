@@ -6,13 +6,13 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 22:01:25 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/05 03:17:12 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/05 05:00:12 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_putchar_just(char *str, int len)
+static void ft_putchar_space(char *str, int len)
 {
 		while (len-- > ft_strlen(str))
 				ft_putchar(' ');
@@ -54,7 +54,16 @@ int	ft_print_int(int arguments, t_flags flag, int len)
 	i = 0;
 	str = ft_itoa(arguments);
 	len_s = ft_strlen(str);
-	if ((flag.width == 0 || flag.width <= len_s)  && flag.precision <= len_s)
+	if (flag.dot && !flag.precision && !flag.width)
+		return (0);
+	if (flag.precision == 0 && flag.width > 0 && flag.dot)
+	{
+		len = flag.width;
+		while (len-- > 0)
+			ft_putchar(' ');
+		return (flag.width);
+	}
+	else if ((flag.width == 0 || flag.width <= len_s)  && flag.precision <= len_s)
 	{
 		len = ft_putstr(str);
 		return (len);
@@ -62,14 +71,14 @@ int	ft_print_int(int arguments, t_flags flag, int len)
 	else if (flag.width > len_s && flag.zero == 0 && flag.precision < len_s)
 	{
 		if (flag.justify == 0)
-			ft_putchar_just(str, flag.width);
+			ft_putchar_space(str, flag.width);
 		ft_putstr(str);
 		if (flag.justify == 1)
-			ft_putchar_just(str, flag.width);
+			ft_putchar_space(str, flag.width);
 		return (flag.width);
 	
 	}
-	else if ((flag.precision > len_s && flag.width <= len_s) || (flag.zero && flag.width > len_s))
+	else if ((flag.precision > len_s && flag.width <= len_s && flag.zero == 0) || (flag.zero && flag.width > len_s && flag.precision == 0))
 	{
 		len = flag.zero ? flag.width : flag.precision;
 		len = ft_putchar_minus(str, flag, len, &i);
@@ -93,6 +102,24 @@ int	ft_print_int(int arguments, t_flags flag, int len)
 		if (flag.justify == 1)
 			ft_putchar_just_minus(str, flag, len);
 		return (flag.width);
+	}
+	else if (flag.width && flag.precision && flag.zero)
+	{
+		if (flag.width > len_s && flag.precision < len_s)
+		{
+			ft_putchar_space(str, flag.width);
+			ft_putstr(str);
+			return (flag.width);
+		}
+		if (flag.width < len_s && flag.precision > len_s)
+		{
+			len = flag.precision;
+			len = ft_putchar_minus(str, flag, len, &i);
+			while (len-- > len_s)
+				ft_putchar('0');
+			ft_putstr(&str[i]);
+			return (str[0] == '-'? flag.precision + 1 : flag.precision);
+		}
 	}
 	return (0);
 
