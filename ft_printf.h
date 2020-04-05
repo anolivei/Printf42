@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:48:50 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/02 23:29:15 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/05 01:42:18 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@
 
 typedef struct	s_flags
 {
-	int zero;
-	int dot;
-	int width;
-	int precision;
-	int justify;
-	char zero_space;
+	int		zero;
+	int		dot;
+	int		width;
+	int		precision;
+	int		justify;
+	char	zero_space;
+	int		i;
 }		t_flags;
 
 # define CONVERSIONS	"cspdiuxX%"
