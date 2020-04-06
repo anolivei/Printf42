@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:35:24 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/05 22:52:16 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/05 23:20:11 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ t_flags	ft_verify_flags(const char c, va_list arguments, t_flags flag)
 		else
 			flag.width = (flag.width * 10) + (c - '0');
 	}
-//	printf("w %d p %d\n", flag.width, flag.precision);
 	return (flag);
 }
 

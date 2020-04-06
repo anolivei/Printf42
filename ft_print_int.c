@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 22:01:25 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/05 23:03:14 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/05 23:19:52 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int	ft_print_int(char *str, t_flags flag, int len)
 
 	i = 0;
 	len_s = ft_strlen(str);
-//	printf("w %d len %d z %d p %d\n", flag.width, len_s, flag.zero, flag.precision);
 	if (flag.dot && !flag.precision && !flag.width)
 		return (0);
 	if (flag.precision == 0 && flag.width > 0 && flag.dot)
@@ -71,7 +70,6 @@ int	ft_print_int(char *str, t_flags flag, int len)
 	{
 		if (flag.justify == 0)
 			ft_putchar_space(str, flag.width);
-		//	printf("entrou");
 		ft_putstr(str);
 		if (flag.justify == 1)
 			ft_putchar_space(str, flag.width);
@@ -101,11 +99,11 @@ int	ft_print_int(char *str, t_flags flag, int len)
 		ft_putstr(&str[i]);
 		if (flag.justify == 1)
 			ft_putchar_just_minus(str, flag, len);
-		return (flag.width);
+		return (flag.width > flag.precision ? flag.width : flag.precision);
 	}
 	else if (flag.width && flag.precision && flag.zero)
 	{
-		if (flag.width > len_s && flag.precision < len_s)
+		if (flag.width > len_s && flag.precision <= len_s)
 		{
 			ft_putchar_space(str, flag.width);
 			ft_putstr(str);
