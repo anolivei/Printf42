@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:48:50 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/05 18:55:17 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/05 20:01:49 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,14 @@ int		ft_print_string(char *str, t_flags flag, int len);
 int		ft_print_int(char *str, t_flags flag, int len);
 int		ft_print_u(char *str, t_flags flag, int len);
 int		ft_print_hexa(char *str,  t_flags flag, int len);
-int		ft_print_pointer(va_list arguments, t_flags flag);
+int		ft_print_pointer(char *str, t_flags flag, int len);
 
 /*
 **	UTILS
 */
 int		ft_strlen(const char *str);
 int		ft_strchr(char *s, int c);
+char	*ft_strjoin(char *s1, char *s2);
 int		ft_putchar(char c);
 int		ft_putchar_len(const char *c, int len);
 int		ft_putstr(char *c);

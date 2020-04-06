@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 22:01:25 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/05 18:56:28 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/05 23:03:14 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,12 @@ static void ft_putchar_just_minus(char *str, t_flags flag, int len)
 
 int	ft_print_int(char *str, t_flags flag, int len)
 {
-//	char	*str;
 	int		len_s;
 	int		i;
 
 	i = 0;
-//	str = ft_itoa(arguments);
 	len_s = ft_strlen(str);
+//	printf("w %d len %d z %d p %d\n", flag.width, len_s, flag.zero, flag.precision);
 	if (flag.dot && !flag.precision && !flag.width)
 		return (0);
 	if (flag.precision == 0 && flag.width > 0 && flag.dot)
@@ -72,6 +71,7 @@ int	ft_print_int(char *str, t_flags flag, int len)
 	{
 		if (flag.justify == 0)
 			ft_putchar_space(str, flag.width);
+		//	printf("entrou");
 		ft_putstr(str);
 		if (flag.justify == 1)
 			ft_putchar_space(str, flag.width);
