@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 21:05:59 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/10 04:54:50 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/10 15:33:24 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	main(void)
 {
-	int		a = 3;
-//	int		b = 0;
-	char	c = 'a';
-	int		d = 2147483647;
-	int		e = -2147483648;
+	int		a = 2;
+	int		b = -2;
+//	char	c = 'a';
+//	int		d = 2147483647;
+//	int		e = -2147483648;
 //	int		f = 42;
 //	int		g = 25;
 //	int		h = 4200;
 	int		i = 8;
-	int		j = -12;
-	int		k = 123456789;
+//	int		j = -12;
+//	int		k = 123456789;
 	int		l = 0;
-	int		m = -12345678;
+//	int		m = -12345678;
 //	char	*n = "abcdefghijklmnop";
 //	char	*o = "-a";
 //	char	*p = "-12";
@@ -80,8 +80,8 @@ int	main(void)
 //STAR
 //
 //PRINTF	
-	t_mine = ft_printf("printfm: %.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
+	t_mine = ft_printf("printfm: %0*.*i,  %0*.*d", a, b, i, a, b, l);
 	printf("(%d)\n",t_mine);
-	t_orig = printf("printfo: %.*i, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d, %.*d", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
+	t_orig = printf("printfo: %0*.*i,  %0*.*d", a, b, i, a, b, l);
 	printf("(%d)\n",t_orig);
 }
