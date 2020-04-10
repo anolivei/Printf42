@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:48:50 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/05 20:01:49 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/06 02:21:48 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		ft_putchar_len(const char *c, int len);
 int		ft_putstr(char *c);
 char	*ft_utoa(unsigned int u);
 char	*ft_itoa(int n);
-char	*ft_dtox(uintmax_t n, const char *base);
+char	*ft_dtox(unsigned long int n, const char *base, char c);
 int		ft_verify_type(char c, va_list arguments, t_flags flag);
 t_flags	ft_verify_star(va_list arguments, t_flags flag);
 t_flags	ft_verify_flags(const char c, va_list arguments, t_flags flag);

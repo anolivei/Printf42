@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 22:01:25 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/05 23:19:52 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/10 05:09:26 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,22 @@ int	ft_print_int(char *str, t_flags flag, int len)
 
 	i = 0;
 	len_s = ft_strlen(str);
-	if (flag.dot && !flag.precision && !flag.width)
-		return (0);
-	if (flag.precision == 0 && flag.width > 0 && flag.dot)
+	if (flag.dot && !flag.precision && flag.width <= len_s)
+	{
+		if (str[0] == '0' && flag.width == 0)
+			return (0);
+		else if (str[0] == '0' && flag.width)
+		{
+			write(1, " ", 1);
+			return (1);
+		}
+		else
+		{
+			len = ft_putstr(str);
+			return (len);
+		}
+	}
+	else if (flag.precision == 0 && flag.width > 0 && flag.dot)
 	{
 		len = flag.width;
 		while (len-- > 0)

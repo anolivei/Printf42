@@ -6,7 +6,7 @@
 /*   By: anolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 19:24:29 by anolivei          #+#    #+#             */
-/*   Updated: 2020/03/15 17:03:10 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/06 03:14:19 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char		*ft_itoa(int n)
 	int				len;
 	unsigned int	num;
 	
+	if (n == 0)
+		return ("0");
 	num = n < 0 ? n * (-1) : n;
 	len = n <= 0 ? 1 : 0;
 	while (num > 0)

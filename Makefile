@@ -6,11 +6,11 @@
 #    By: anolivei <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 21:40:14 by anolivei          #+#    #+#              #
-#    Updated: 2020/04/05 19:55:26 by anolivei         ###   ########.fr        #
+#    Updated: 2020/04/05 23:31:45 by anolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ../libftprintf.a
+NAME = libftprintf.a
 
 SRC = 	ft_printf.c ft_strchr.c ft_print_char.c ft_strlen.c ft_putchar.c \
 	ft_print_string.c ft_putstr.c ft_print_pct.c ft_print_int.c ft_itoa.c \
@@ -28,7 +28,7 @@ $(NAME):
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 main:
-	@gcc -Wall -Wextra -Werror $(SRC) $(MAIN)
+	@gcc -Wall -Wextra -Werror  -g -fsanitize=address  $(SRC) $(MAIN)
 clean:
 	@/bin/rm -f $(OBJ) $(OBJ_BONUS)
 
