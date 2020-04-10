@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 22:01:25 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/10 16:24:38 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/10 19:03:12 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	ft_print_int(char *str, t_flags flag, int len)
 	}
 	else if (flag.precision == 0 && flag.width > 0 && flag.dot)
 	{
+	//	printf("entrou");
 		if (flag.justify)
 		{
 			len = flag.width;
@@ -81,7 +82,19 @@ int	ft_print_int(char *str, t_flags flag, int len)
 				ft_putchar(' ');
 			return (flag.width);
 		}
-		else
+		else if (flag.width > len_s)
+		{
+//			printf("entrou");
+			len = flag.width;
+			while (len-- > len_s)
+				ft_putchar(' ');
+			if (str[0] == '0')
+				ft_putchar(' ');
+			else
+				ft_putstr(str);
+			return (flag.width);
+		}
+		else		
 		{
 			len = flag.width;
 			while (len-- > 0)
@@ -92,7 +105,7 @@ int	ft_print_int(char *str, t_flags flag, int len)
 	else if ((flag.width == 0 || flag.width <= len_s)  && flag.precision <= len_s)
 	{
 	//	printf("entrou");
-		if (str[0] == '-' && flag.precision == len_s && flag.width < len_s)
+		if (str[0] == '-' && flag.precision == len_s && flag.width <= len_s)
 		{
 			ft_putstr("-0");
 			ft_putstr(&str[1]);
@@ -140,6 +153,7 @@ int	ft_print_int(char *str, t_flags flag, int len)
 	}
 	else if (flag.width > len_s && flag.precision >= len_s)
 	{
+//		printf("entrou");
 		if (flag.justify == 0)
 			ft_putchar_just_minus(str, flag, len);
 		len = 0;
@@ -150,22 +164,33 @@ int	ft_print_int(char *str, t_flags flag, int len)
 		ft_putstr(&str[i]);
 		if (flag.justify == 1)
 			ft_putchar_just_minus(str, flag, len);
-		return (flag.width > flag.precision ? flag.width : flag.precision);
+		len = flag.width > flag.precision ? flag.width : flag.precision;
+		return (len = (str[0] == '-' && flag.width <= flag.precision) ? len + 1 : len);
 	}
 	else if (flag.width && flag.precision && flag.zero)
 	{
 //		printf("entrou");
 		if (flag.width > len_s && flag.precision <= len_s)
 		{
-			if (flag.precision < 0)
-				flag.precision = flag.precision * (-1);
-			len = flag.precision > len_s ? flag.width - flag.precision : flag.width;
-			ft_putchar_space(str, len);
-			len = flag.precision;
-			while (len-- > len_s)
-				ft_putchar('0');
-			ft_putstr(str);
-			return (flag.width);
+			len = flag.width;
+			if (flag.zero && flag.precision < 0)
+			{
+				if (str[0] == '-')
+				{
+					ft_putchar('-');
+					i++;
+				}
+				while (len-- > len_s)
+					ft_putchar('0');
+				ft_putstr(&str[i]);
+				return (flag.width);
+			}
+			else
+			{
+				ft_putchar_space(str, flag.width);
+				ft_putstr(str);
+				return (flag.width);
+			}
 		}
 		if (flag.width < len_s && flag.precision > len_s)
 		{

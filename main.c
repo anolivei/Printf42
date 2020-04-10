@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 21:05:59 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/10 15:33:24 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/10 19:13:01 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	main(void)
 {
-	int		a = 2;
-	int		b = -2;
-//	char	c = 'a';
-//	int		d = 2147483647;
-//	int		e = -2147483648;
+	int		a = -5;
+//	int		b = 4;
+	char	c = 'a';
+	int		d = 2147483647;
+	int		e = -2147483648;
 //	int		f = 42;
 //	int		g = 25;
 //	int		h = 4200;
 	int		i = 8;
-//	int		j = -12;
-//	int		k = 123456789;
+	int		j = -12;
+	int		k = 123456789;
 	int		l = 0;
-//	int		m = -12345678;
+	int		m = -12345678;
 //	char	*n = "abcdefghijklmnop";
 //	char	*o = "-a";
 //	char	*p = "-12";
@@ -80,8 +80,8 @@ int	main(void)
 //STAR
 //
 //PRINTF	
-	t_mine = ft_printf("printfm: %0*.*i,  %0*.*d", a, b, i, a, b, l);
+	t_mine = ft_printf("printfm: %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e);
 	printf("(%d)\n",t_mine);
-	t_orig = printf("printfo: %0*.*i,  %0*.*d", a, b, i, a, b, l);
+	t_orig = printf("printfo: %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X, %0*u, %0*x, %0*X", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e);
 	printf("(%d)\n",t_orig);
 }
