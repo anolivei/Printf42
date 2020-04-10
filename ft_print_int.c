@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 22:01:25 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/10 19:03:12 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/10 19:20:26 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,6 @@ int	ft_print_int(char *str, t_flags flag, int len)
 	}
 	else if (flag.width && flag.precision && flag.zero)
 	{
-//		printf("entrou");
 		if (flag.width > len_s && flag.precision <= len_s)
 		{
 			len = flag.width;
