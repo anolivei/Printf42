@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 21:47:00 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/11 03:36:08 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/12 01:40:52 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ static char	*ft_trata_str(char *str, char c)
 	return (&str[i]);
 }
 
-char	*ft_dtox(unsigned long int  n, const char *base, char c)
+char		*ft_dtox(unsigned long int n, const char *base, char c)
 {
 	char				*str;
 	unsigned long int	len;
 	unsigned long int	num;
-	
+
 	if (n == 0)
 		return ("0");
 	num = n;
@@ -39,7 +39,7 @@ char	*ft_dtox(unsigned long int  n, const char *base, char c)
 		num = num / 16;
 		len++;
 	}
-	str = (char *)malloc(sizeof (char) * (len + 1));
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
 	str[len] = '\0';
