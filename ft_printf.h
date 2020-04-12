@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:48:50 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/12 05:18:45 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/12 17:30:52 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ int				ft_printf(const char *format, ...);
 int				ft_print_pct(char c, t_flags flag, int len);
 int				ft_print_char(char c, t_flags flag, int len);
 int				ft_print_string(char *str, t_flags flag, int ret);
-int				ft_print_int(char *s, t_flags flag, int len);
+int				ft_print_int(char *s, t_flags flag, int len_s);
+int				ft_print_int_5(char *str, t_flags flag, int len_s, int len);
+int				ft_print_int_6(char *str, t_flags flag, int len_s, int len);
 int				ft_print_pointer(char *str, t_flags flag, int len);
 
 /*
@@ -64,6 +66,8 @@ int				ft_strchr(char *s, int c);
 char			*ft_strjoin(char *s1, char *s2);
 int				ft_putchar(char c);
 int				ft_putchar_len(const char *c, int len);
+void			ft_putchar_int(int len, int i, char c);
+int				ft_putchar_minus(char *str, t_flags flag, int len, int *i);
 int				ft_putstr(char *c);
 char			*ft_utoa(unsigned int u);
 char			*ft_itoa(int n, int len);
