@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:35:24 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/12 02:47:58 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/12 04:18:46 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		ft_verify_type(char c, va_list args, t_flags flag)
 	if (c == 'c')
 		len = ft_print_char(va_arg(args, int), flag, len);
 	if (c == 's')
-		len = ft_print_string(va_arg(args, char*), flag, len);
+		len = ft_print_string(va_arg(args, char*), flag, flag.width, 0);
 	if (c == '%')
 		len = ft_print_pct('%', flag, len);
 	if (c == 'd' || c == 'i')

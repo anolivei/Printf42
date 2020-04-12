@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 22:48:50 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/12 02:48:14 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/12 04:19:49 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ typedef struct	s_flags
 int				ft_printf(const char *format, ...);
 int				ft_print_pct(char c, t_flags flag, int len);
 int				ft_print_char(char c, t_flags flag, int len);
-int				ft_print_string(char *str, t_flags flag, int len);
-int				ft_print_int(char *str, t_flags flag, int len);
+int				ft_print_string(char *str, t_flags flag, int ret, int i);
+int				ft_print_int(char *s, t_flags flag, int len);
 int				ft_print_pointer(char *str, t_flags flag, int len);
 
 /*
