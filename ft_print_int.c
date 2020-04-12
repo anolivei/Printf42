@@ -6,7 +6,7 @@
 /*   By: anolivei <anolivei@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 22:01:25 by anolivei          #+#    #+#             */
-/*   Updated: 2020/04/10 19:20:26 by anolivei         ###   ########.fr       */
+/*   Updated: 2020/04/11 02:29:45 by anolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ int	ft_print_int(char *str, t_flags flag, int len)
 			ft_putstr(&str[1]);
 			return (flag.precision + 1);
 		}
+	//	printf("%s", str);
 		len = ft_putstr(str);
 		return (len);
 	}
